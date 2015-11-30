@@ -1,7 +1,7 @@
 # Diagnostic-Center-Management
 
 This was made as part of my CSE370 (Database System) course in BRAC University in Spring 2015.
-This project was done with @alam-tahmid and 3 other members. That is, I was part of a 5 member group project.
+This project was done with 4 other members. That is, I was part of a 5 member group project.
 
 
 # Constraints about the database:
