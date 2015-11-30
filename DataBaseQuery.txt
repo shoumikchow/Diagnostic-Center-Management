@@ -1,0 +1,173 @@
+
+Diagnostic Center
+Queries
+
+NOTE: Please put your value instead of "?" in the Where statement to search
+
+
+
+
+
+
+1) Summery 
+
+SELECT patient_has_invoicetest.invoiceTest_Invoice, patient.First_Name, invoicetest.Test_Date
+FROM patient_has_invoicetest
+inner join invoicetest
+on patient_has_invoicetest.invoiceTest_Invoice=invoicetest.Invoice
+INNER JOIN patient
+ON patient_has_invoicetest.patient_idPaitient=patient.idPatient
+
+'
+
+2) Summery advanced (with details)
+
+SELECT patient_has_invoicetest.invoiceTest_Invoice,patient.idPatient, patient.First_Name,testname.Name,invoicetest.Test_Date,invoicetest.Test_Status,patient.reciptionist_idreciptionist
+FROM patient_has_invoicetest
+inner join invoicetest
+on patient_has_invoicetest.invoiceTest_Invoice=invoicetest.Invoice
+INNER JOIN patient
+ON patient_has_invoicetest.patient_idPaitient=patient.idPatient
+inner join testname 
+on invoicetest.TestID=testname.idtestName
+
+
+
+3) Shows all laboratories and corresponding stuffs
+
+SELECT laboratory.type,labtech.idlabtech,stuff.First_Name
+FROM laboratory
+inner join labtech
+on laboratory.labtechID=labtech.idlabtech
+INNER JOIN stuff
+ON stuff.idStuff=labtech.idlabtech
+
+
+
+
+4) Search by test status
+
+SELECT patient_has_invoicetest.invoiceTest_Invoice,patient.idPatient,patient.First_Name,testname.Name,invoicetest.Test_Date,invoicetest.Test_Status,patient.reciptionist_idreciptionist
+FROM patient_has_invoicetest
+inner join invoicetest
+on patient_has_invoicetest.invoiceTest_Invoice=invoicetest.Invoice
+INNER JOIN patient
+ON patient_has_invoicetest.patient_idPaitient=patient.idPatient
+inner join testname 
+on invoicetest.TestID=testname.idtestName
+WHERE invoicetest.Test_Status="?"
+
+
+
+
+5)search by patient id
+
+SELECT patient_has_invoicetest.invoiceTest_Invoice,patient.idPatient, patient.First_Name,testname.Name,invoicetest.Test_Date,invoicetest.Test_Status,patient.reciptionist_idreciptionist
+FROM patient_has_invoicetest
+inner join invoicetest
+on patient_has_invoicetest.invoiceTest_Invoice=invoicetest.Invoice
+INNER JOIN patient
+ON patient_has_invoicetest.patient_idPaitient=patient.idPatient
+inner join testname 
+on invoicetest.TestID=testname.idtestName
+WHERE patient.idPatient=?
+
+
+
+6)search by test name
+
+SELECT patient_has_invoicetest.invoiceTest_Invoice,patient.idPatient, patient.First_Name,testname.Name,invoicetest.Test_Date,invoicetest.Test_Status,patient.reciptionist_idreciptionist
+FROM patient_has_invoicetest
+inner join invoicetest
+on patient_has_invoicetest.invoiceTest_Invoice=invoicetest.Invoice
+INNER JOIN patient
+ON patient_has_invoicetest.patient_idPaitient=patient.idPatient
+inner join testname 
+on invoicetest.TestID=testname.idtestName
+WHERE testname.Name="?"
+
+
+
+
+7)search by patient name
+
+SELECT patient_has_invoicetest.invoiceTest_Invoice,patient.idPatient, patient.First_Name,testname.Name,invoicetest.Test_Date,invoicetest.Test_Status,patient.reciptionist_idreciptionist
+FROM patient_has_invoicetest
+inner join invoicetest
+on patient_has_invoicetest.invoiceTest_Invoice=invoicetest.Invoice
+INNER JOIN patient
+ON patient_has_invoicetest.patient_idPaitient=patient.idPatient
+inner join testname 
+on invoicetest.TestID=testname.idtestName
+WHERE patient.First_Name="?"
+
+
+
+
+8)search stuff by stuff ID
+
+SELECT * from stuff
+where stuff.idStuff=?
+
+
+
+
+
+9) show all doctor and corresponding invoice
+
+SELECT doctor_has_invoicetest.InvoiceTest_Invoice,testname.Name,invoicetest.Test_Date,invoicetest.Test_Status,doctor_has_invoicetest.doctor_idDoctor,doctor.First_Name,
+doctor.Last_Name,doctor.Specialization
+FROM doctor_has_invoicetest
+inner join invoicetest
+on doctor_has_invoicetest.InvoiceTest_Invoice=invoicetest.Invoice
+INNER JOIN doctor
+ON doctor_has_invoicetest.doctor_idDoctor=doctor.idDoctor
+inner join testname 
+on invoicetest.TestID=testname.idtestName
+
+
+
+
+10) search by doctor id
+
+SELECT doctor_has_invoicetest.InvoiceTest_Invoice,testname.Name,invoicetest.Test_Date,invoicetest.Test_Status,doctor_has_invoicetest.doctor_idDoctor,doctor.First_Name,
+doctor.Last_Name,doctor.Specialization
+FROM doctor_has_invoicetest
+inner join invoicetest
+on doctor_has_invoicetest.InvoiceTest_Invoice=invoicetest.Invoice
+INNER JOIN doctor
+ON doctor_has_invoicetest.doctor_idDoctor=doctor.idDoctor
+inner join testname 
+on invoicetest.TestID=testname.idtestName
+where doctor.idDoctor=?
+
+
+
+
+11) search by specialization
+
+SELECT doctor_has_invoicetest.InvoiceTest_Invoice,testname.Name,invoicetest.Test_Date,invoicetest.Test_Status,doctor_has_invoicetest.doctor_idDoctor,doctor.First_Name,
+doctor.Last_Name,doctor.Specialization
+FROM doctor_has_invoicetest
+inner join invoicetest
+on doctor_has_invoicetest.InvoiceTest_Invoice=invoicetest.Invoice
+INNER JOIN doctor
+ON doctor_has_invoicetest.doctor_idDoctor=doctor.idDoctor
+inner join testname 
+on invoicetest.TestID=testname.idtestName
+where doctor.Specialization="?"
+
+
+
+
+12) search by receptionist id
+
+SELECT patient_has_invoicetest.invoiceTest_Invoice,patient.idPatient, patient.First_Name,testname.Name,invoicetest.Test_Date,invoicetest.Test_Status,patient.reciptionist_idreciptionist
+FROM patient_has_invoicetest
+inner join invoicetest
+on patient_has_invoicetest.invoiceTest_Invoice=invoicetest.Invoice
+INNER JOIN patient
+ON patient_has_invoicetest.patient_idPaitient=patient.idPatient
+inner join testname 
+on invoicetest.TestID=testname.idtestName
+WHERE patient.reciptionist_idreciptionist=?
