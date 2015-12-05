@@ -3,6 +3,9 @@
 This was made as part of my CSE370 (Database System) course in BRAC University in Spring 2015.
 This project was done with 4 other members. That is, I was part of a 5 member group project.
 
+I was responsible for design and development.
+
+Please note: the username for the login page is "Melodie" and the password is "EOC06UXK0RO" as per the database.
 
 # Constraints about the database:
 
